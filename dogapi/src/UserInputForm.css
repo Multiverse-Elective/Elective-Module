@@ -1,0 +1,33 @@
+/* src/components/UserInputForm.css */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    list-style: none;
+  }
+  
+  .movie-grid li {
+    border: 1px solid #ccc;
+    padding: 16px;
+    text-align: center;
+  }
+  
+  .movie-grid img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 8px;
+  }
+
+  /* src/components/UserInputForm.css */
+
+form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px; /* Adjust as needed */
+  }
+  
+  input {
+    margin-right: 10px; /* Adjust as needed */
+  }
+  
+  
