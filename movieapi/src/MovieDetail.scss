@@ -1,0 +1,25 @@
+// MovieDetail.scss
+
+.movie-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the left */
+    margin: 20px;
+  
+    img {
+      width: 20%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+  
+    .movie-title {
+      font-weight: bold;
+      font-size: 20px; /* Adjust the font size as needed */
+    }
+  
+    p {
+      margin-bottom: 5px;
+    }
+  
+  }
+  
