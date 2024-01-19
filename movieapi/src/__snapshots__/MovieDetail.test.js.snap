@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieDetail Component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="movie-detail"
+  >
+    <img
+      alt="Inception"
+      src="inception-poster.jpg"
+    />
+    <p
+      class="movie-title"
+    >
+      Inception
+    </p>
+    <p>
+      Released: 2010-07-16
+    </p>
+    <p>
+      Year: 2010
+    </p>
+    <p>
+      Rated: PG-13
+    </p>
+    <p>
+      Runtime: 148 min
+    </p>
+    <p>
+      Genre: Action, Adventure, Sci-Fi
+    </p>
+    <p>
+      Director: Christopher Nolan
+    </p>
+    <p>
+      Writer: Christopher Nolan
+    </p>
+    <p>
+      Actors: Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page
+    </p>
+    <p>
+      Plot: A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.
+    </p>
+  </div>
+</DocumentFragment>
+`;

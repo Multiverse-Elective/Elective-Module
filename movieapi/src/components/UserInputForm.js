@@ -1,10 +1,9 @@
-// src/components/UserInputForm.js
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { setUserPreferences } from '../redux/actions/userActions';
-import axios from 'axios';
 import MovieDetail from './MovieDetail';
 import '../UserInputForm.scss'; // Import the CSS file for styling
+import axios from 'axios';
 
 const UserInputForm = () => {
   const dispatch = useDispatch();
@@ -20,30 +19,30 @@ const UserInputForm = () => {
     dispatch(setUserPreferences({ title, released, year, rated, genre }));
   }, [title, released, year, rated, genre, dispatch]);
 
-  useEffect(() => {
-    const fetchMovies = async () => {
-      try {
-        let apiURL = 'http://www.omdbapi.com?apikey=b91b1458';
+  const fetchMovies = useCallback(async () => {
+    try {
+      let apiURL = 'http://www.omdbapi.com?apikey=b91b1458';
 
-        // Check if any search criteria is provided
-        if (title || year || released || rated || genre) {
-          apiURL += `&s=${title}&y=${year}&released=${released}&rated=${rated}&genre=${genre}`;
-        } else {
-          // If no search criteria, fetch random movies
-          apiURL += '&s=random&type=movie';
-        }
-
-        const response = await axios.get(apiURL);
-        setMovies(response.data.Search || []);
-      } catch (error) {
-        console.error('Error fetching movies', error);
+      // Check if any search criteria is provided
+      if (title || year || released || rated || genre) {
+        apiURL += `&s=${title}&y=${year}&released=${released}&rated=${rated}&genre=${genre}`;
+      } else {
+        // If no search criteria, fetch random movies
+        apiURL += '&s=random&type=movie';
       }
-    };
 
+      const response = await axios.get(apiURL);
+      setMovies(response.data.Search || []);
+    } catch (error) {
+      console.error('Error fetching movies', error);
+    }
+  }, [title, year, released, rated, genre]);
+
+  useEffect(() => {
     const debounce = setTimeout(fetchMovies, 300);
 
     return () => clearTimeout(debounce);
-  }, [title, year, released, rated, genre]);
+  }, [fetchMovies]);
 
   const handleMovieClick = async (imdbID) => {
     try {
@@ -85,13 +84,12 @@ const UserInputForm = () => {
     <div>
       {selectedMovie ? (
         <>
-          <MovieDetail movie={selectedMovie} />
-          <button className="back-button" onClick={handleBackButtonClick}>Back to Search</button>
-          <br/>
+          <MovieDetail movie={selectedMovie} handleBackButtonClick={handleBackButtonClick} />
+          <br />
         </>
       ) : (
         <>
-        <h1>Movie Search</h1> {/* Add the header */}
+          <h1>Movie Search</h1> {/* Add the header */}
           <form className="search-form">
             <input type="text" name="title" value={title} onChange={handleInputChange} placeholder="Enter title" />
             <input type="text" name="released" value={released} onChange={handleInputChange} placeholder="Enter released year" />
@@ -101,7 +99,7 @@ const UserInputForm = () => {
           </form>
 
           <ul className="movie-grid">
-            {movies.map(movie => (
+            {movies.map((movie) => (
               <li key={movie.imdbID} onClick={() => handleMovieClick(movie.imdbID)}>
                 <img src={movie.Poster} alt={movie.Title} />
                 <div>
