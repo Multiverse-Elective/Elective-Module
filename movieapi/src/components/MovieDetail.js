@@ -1,8 +1,5 @@
-// MovieDetail.js
-
 import React from 'react';
-import '../MovieDetail.scss'; // Make sure to import the correct SCSS file
-
+import '../MovieDetail.scss';
 const MovieDetail = ({ movie, handleBackButtonClick }) => {
   if (!movie) {
     return null;

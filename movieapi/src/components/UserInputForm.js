@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { setUserPreferences } from '../redux/actions/userActions';
 import MovieDetail from './MovieDetail';
-import '../UserInputForm.scss'; // Import the CSS file for styling
+import '../UserInputForm.scss';
 import axios from 'axios';
 
 const UserInputForm = () => {
@@ -23,11 +23,9 @@ const UserInputForm = () => {
     try {
       let apiURL = 'http://www.omdbapi.com?apikey=b91b1458';
 
-      // Check if any search criteria is provided
       if (title || year || released || rated || genre) {
         apiURL += `&s=${title}&y=${year}&released=${released}&rated=${rated}&genre=${genre}`;
       } else {
-        // If no search criteria, fetch random movies
         apiURL += '&s=random&type=movie';
       }
 
@@ -89,7 +87,7 @@ const UserInputForm = () => {
         </>
       ) : (
         <>
-          <h1>Movie Search</h1> {/* Add the header */}
+          <h1>Movie Search</h1>
           <form className="search-form">
             <input type="text" name="title" value={title} onChange={handleInputChange} placeholder="Enter title" />
             <input type="text" name="released" value={released} onChange={handleInputChange} placeholder="Enter released year" />

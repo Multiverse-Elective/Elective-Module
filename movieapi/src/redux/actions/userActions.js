@@ -1,4 +1,3 @@
-// src/redux/actions/userActions.js
 import * as actionTypes from './actionTypes';
 
 export const setUserPreferences = (preferences) => ({

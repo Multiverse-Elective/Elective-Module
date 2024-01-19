@@ -1,4 +1,3 @@
-// src/redux/reducers/userReducer.js
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {

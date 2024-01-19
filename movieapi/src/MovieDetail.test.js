@@ -59,4 +59,3 @@ describe('MovieDetail Component', () => {
       expect(asFragment()).toMatchSnapshot();
     });
   });
-  
