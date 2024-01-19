@@ -19,37 +19,26 @@ This is a Movie Search application that allows users to search for movies based 
 
 ### Installation
 
-1. Clone the repository:
-
-```bash
+Clone the repository:
 git clone https://github.com/your-username/movie-search-app.git
+
 cd movie-search-app
 
-Install dependencies:
-bash
-Copy code
 npm install
-Usage
+
+
+### Usage
 Start the development server:
-bash
-Copy code
 npm start
 Open your browser and go to http://localhost:3000
-Testing
-Run tests using the following command:
 
-bash
-Copy code
+
+### Testing
+Run tests using the following command:
 npm test
-Technologies Used
+
+
+### Technologies Used
 React
 Redux
 Axios
-Contributing
-Contributions are welcome! Feel free to open an issue or submit a pull request.
-
-License
-This project is licensed under the MIT License.
-
-Acknowledgments
-OMDb API for providing movie data.
